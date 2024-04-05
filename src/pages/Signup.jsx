@@ -21,7 +21,7 @@ export default function Signup() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/admin/signup", {
+      const res = await fetch("https://billing-backend-9wgp.onrender.com/api/admin/signup", {
         method: "POST",
         headers: {
           "content-Type": "application/json",
@@ -50,7 +50,7 @@ export default function Signup() {
     <div className="flex mt-36 md:mt-12 p-10 max-w-sm sm:max-w-2xl lg:max-w-4xl flex-col mx-auto">
       <div className="bg-slate-200 p-3">
         <h1 className="text-3xl text-center bg-violet-400 p-3 rounded-lg font-semibold">
-          Welcome to <span className="text-dc2626">shenaz'S Billing APP</span>
+          Welcome to <span className="text-dc2626">shenaz's Billing APP</span>
         </h1>
       </div>
       <div className="flex flex-col md:flex-row p-5 gap-3 mt-10 bg-slate-400 rounded-lg">

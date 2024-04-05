@@ -3,12 +3,12 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default function EditProduct() {
   const [formdata, setFormdata] = useState({
-    productID: 0,
+    productID: '',
     productname: "",
     productdescription: "",
     productcategory: "",
-    productquantity: 0,
-    productprice: 0,
+    productquantity: '',
+    productprice: '',
   });
   const navigate = useNavigate();
   const params = useParams();
@@ -17,7 +17,7 @@ export default function EditProduct() {
     const fetching = async () => {
       const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/products/editproduct/${params.id}`,
+        `https://billing-backend-9wgp.onrender.com/api/products/editproduct/${params.id}`,
         {
           headers: {
             Authorization: `Bearer ${t}`,
@@ -44,7 +44,7 @@ export default function EditProduct() {
     try {
       const t = localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/products/editproductdone/${params.id}`,
+        `https://billing-backend-9wgp.onrender.com/api/products/editproductdone/${params.id}`,
         {
           method: "POST",
           headers: {

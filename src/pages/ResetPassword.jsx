@@ -8,7 +8,7 @@ export default function ResetPassword() {
   const navigate = useNavigate();
   const handlesubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/api/admin/reset-password", {
+    const res = await fetch("https://billing-backend-9wgp.onrender.com/api/admin/reset-password", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

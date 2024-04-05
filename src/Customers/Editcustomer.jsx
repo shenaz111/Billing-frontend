@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default function Editcustomer() {
   const [formdata, setFormdata] = useState({
-    customerID: 0,
+    customerID: "",
     name: "",
     email: "",
     address: "",
@@ -19,7 +19,7 @@ export default function Editcustomer() {
   useEffect(() => {
     const fetching = async () => {
       const t=localStorage.getItem("access_token");
-      const res = await fetch(`http://localhost:5000/api/customers/editcustomer/${id}`,{
+      const res = await fetch(`https://billing-backend-9wgp.onrender.com/api/customers/editcustomer/${id}`,{
         headers:{
           Authorization: `Bearer ${t}`,
         }
@@ -42,7 +42,7 @@ export default function Editcustomer() {
     e.preventDefault();
     try {
       const t=localStorage.getItem("access_token");
-      const res = await fetch(`http://localhost:5000/api/customers/updatecustomer/${id}`, {
+      const res = await fetch(`https://billing-backend-9wgp.onrender.com/api/customers/updatecustomer/${id}`, {
         method: "POST",
         headers: {
           "content-Type": "application/json",

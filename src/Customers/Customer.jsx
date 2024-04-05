@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Customer() {
   const [formdata, setFormdata] = useState({
-    customerID: 0,
+    customerID: "",
     name: "",
     email: "",
     address: "",
@@ -19,7 +19,7 @@ export default function Customer() {
     const fetching = async () => {
       const t=localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/customers/getallcustomer/${currentUser._id}`,
+        `https://billing-backend-9wgp.onrender.com/api/customers/getallcustomer/${currentUser._id}`,
         {
           headers:{
             Authorization: `Bearer ${t}`,
@@ -46,7 +46,7 @@ export default function Customer() {
       setLoading(true);
       const t=localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/customers/addcustomer/${currentUser._id}  `,
+        `https://billing-backend-9wgp.onrender.com/api/customers/addcustomer/${currentUser._id}  `,
         {
           method: "POST",
           headers: { "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export default function Customer() {
   const handleDelete = async (id) => {
     try {
       const t=localStorage.getItem("access_token");
-      const res = await fetch(`http://localhost:5000/api/customers/deletecustomer/${id}`, 
+      const res = await fetch(`https://billing-backend-9wgp.onrender.com/api/customers/deletecustomer/${id}`, 
       {
         method: "DELETE",
         Authorization: `Bearer ${t}`,

@@ -5,7 +5,7 @@ export const UpdateExistingInvoiceProductDetails = () => {
   const [prevProductsDetails, setPrevProductDetails] = useState({
     productdescription: "",
     productname: "",
-    productprice: 0,
+    productprice: "",
   });
   const navigate = useNavigate();
   const [error, setError] = useState(false);
@@ -24,7 +24,7 @@ export const UpdateExistingInvoiceProductDetails = () => {
       try {
         const t=localStorage.getItem("access_token");
         const res = await fetch(
-          `http://localhost:5000/api/invoices/updateproductquantityinexisitinginvoice/${id}?productid=${productid}`,{
+          `https://billing-backend-9wgp.onrender.com/api/invoices/updateproductquantityinexisitinginvoice/${id}?productid=${productid}`,{
             headers:{
               Authorization: `Bearer ${t}`,
             }
@@ -58,7 +58,7 @@ export const UpdateExistingInvoiceProductDetails = () => {
     try {
       const t=localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/invoices/updateproductsdoneinexistinginvoice/${id}?productid=${productid}`,
+        `https://billing-backend-9wgp.onrender.com/api/invoices/updateproductsdoneinexistinginvoice/${id}?productid=${productid}`,
         {
           method: "POST",
           headers: {

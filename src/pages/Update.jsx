@@ -23,7 +23,7 @@ export default function Update() {
     try {
       setLoading(true);
       const t = localStorage.getItem("access_token");
-      const res = await fetch(`http://localhost:5000/api/admin/update/${currentUser._id}`, {
+      const res = await fetch(`https://billing-backend-9wgp.onrender.com/api/admin/update/${currentUser._id}`, {
         method: "POST",
         headers: {
           "content-Type": "application/json",
@@ -54,7 +54,7 @@ export default function Update() {
     try {
       const t = localStorage.getItem("access_token");
       console.log("delete finished");
-      const res = await fetch(`http://localhost:5000/api/admin/logout`, {
+      const res = await fetch(`https://billing-backend-9wgp.onrender.com/api/admin/logout`, {
         headers: {
           "content-type": "application/json",
           Authorization: `Bearer ${t}`,

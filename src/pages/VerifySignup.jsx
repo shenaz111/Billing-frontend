@@ -14,7 +14,7 @@ export default function VerifySignup() {
   useEffect(() => {
     const fetching = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/admin/verify/${id}/${token}`);
+        const res = await fetch(`https://billing-backend-9wgp.onrender.com/api/admin/verify/${id}/${token}`);
         const data = await res.json();
 
         if (data.success === false) {
@@ -33,7 +33,7 @@ export default function VerifySignup() {
 
   const handlesubmit = async () => {
     const res = await fetch(
-      `http://localhost:5000/api/admin/verificationstatus/${id}/${token}`
+      `https://billing-backend-9wgp.onrender.com/api/admin/verificationstatus/${id}/${token}`
     );
     const data = await res.json();
     if (data.success === false) {

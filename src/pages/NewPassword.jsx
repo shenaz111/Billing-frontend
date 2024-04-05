@@ -27,7 +27,7 @@ const NewPassword = () => {
       setError("Both Password Must be Same");
       return;
     }
-    const res = await fetch(`http://localhost:5000/api/admin/newpassword/${userId}`, {
+    const res = await fetch(`https://billing-backend-9wgp.onrender.com/api/admin/newpassword/${userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

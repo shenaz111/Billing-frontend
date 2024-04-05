@@ -21,9 +21,8 @@ export default function Login() {
  
   const handlesubmit = async (e) => {
     e.preventDefault();
-    console.log('frontend form data ',formdata);
     try {
-      const res = await fetch("http://localhost:5000/api/admin/login", {
+      const res = await fetch("https://billing-backend-9wgp.onrender.com/api/admin/login", {
         method: "POST",
         headers: {
           "content-Type": "application/json",

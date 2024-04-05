@@ -19,7 +19,7 @@ export default function Dashboard() {
         const t = localStorage.getItem("access_token");
         console.log(t);
         const res = await fetch(
-          `http://localhost:5000/api/dashboard/getdashboarddetails/${currentUser._id}`,
+          `https://billing-backend-9wgp.onrender.com/api/dashboard/getdashboarddetails/${currentUser._id}`,
           {
             headers: {
               "content-type": "application/json",

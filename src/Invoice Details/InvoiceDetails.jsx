@@ -31,7 +31,7 @@ export default function InvoiceDetails() {
       const t=localStorage.getItem("access_token");
 
       const res = await fetch(
-        `http://localhost:5000/api/invoices/getallInvoices/${currentUser._id}?${params.toString()}`,{
+        `https://billing-backend-9wgp.onrender.com/api/invoices/getallInvoices/${currentUser._id}?${params.toString()}`,{
           headers: {'Content-Type': 'application/json',
           Authorization: `Bearer ${t}`}
         }
@@ -68,7 +68,7 @@ export default function InvoiceDetails() {
     const t=localStorage.getItem("access_token");
 
     const res = await fetch(
-      `http://localhost:5000/api/invoices/getallInvoices/${currentUser._id}?${params.toString()}`,{
+      `https://billing-backend-9wgp.onrender.com/api/invoices/getallInvoices/${currentUser._id}?${params.toString()}`,{
         headers: {'Content-Type': 'application/json',
         Authorization: `Bearer ${t}`,},
       }
@@ -88,7 +88,7 @@ export default function InvoiceDetails() {
     try {
       const t =localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/invoices/deleteinvoice?deleteid=${deleteid}`,
+        `https://billing-backend-9wgp.onrender.com/api/invoices/deleteinvoice?deleteid=${deleteid}`,
         {
           method: "DELETE",
           headers:{

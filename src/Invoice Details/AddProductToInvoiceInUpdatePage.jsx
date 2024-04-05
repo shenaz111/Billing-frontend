@@ -30,7 +30,7 @@ export const AddProductToInvoiceInUpdatePage = () => {
     try {
       const t=localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/products/getproduct/${currentproduct.productID}/${currentUser._id}`,{
+        `https://billing-backend-9wgp.onrender.com/api/products/getproduct/${currentproduct.productID}/${currentUser._id}`,{
           headers:{
             Authorization: `Bearer ${t}`,
           }
@@ -98,7 +98,7 @@ export const AddProductToInvoiceInUpdatePage = () => {
       try {
         const t=localStorage.getItem("access_token");
         const res = await fetch(
-          `http://localhost:5000/api/invoices/getproductsforexistinginvoice/${id}`,
+          `https://billing-backend-9wgp.onrender.com/api/invoices/getproductsforexistinginvoice/${id}`,
           {
             headers:{
               Authorization: `Bearer ${t}`,
@@ -133,11 +133,11 @@ export const AddProductToInvoiceInUpdatePage = () => {
       prevProducts.push(currentproduct);
 
       setCurrentProduct({
-        productID: 0,
+        productID: "",
         productname: "",
         productdescription: "",
         productcategory: "",
-        productquantity: 1,
+        productquantity: '',
         productprice: '',
       });
     }
@@ -145,7 +145,7 @@ export const AddProductToInvoiceInUpdatePage = () => {
       setLoading(true);
       const t=localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/invoices/addproductstoexistinginvoice/${id}`,
+        `https://billing-backend-9wgp.onrender.com/api/invoices/addproductstoexistinginvoice/${id}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json",

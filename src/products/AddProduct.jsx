@@ -1,4 +1,3 @@
-import { current } from "@reduxjs/toolkit";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -21,14 +20,14 @@ export default function AddProduct() {
     const fetching = async () => {
       try {
         const t = localStorage.getItem("access_token");
-        const res = await fetch(`http://localhost:5000/api/products/getproducts/${currentUser._id}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${t}`,
-          },
-        });
-       
+        const res = await fetch(
+          `https://billing-backend-9wgp.onrender.com/api/products/getproducts/${currentUser._id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${t}`,
+            },
+          }
+        );
         const data = await res.json();
         if (data.success === false) {
           setError(data.message);
@@ -54,10 +53,7 @@ export default function AddProduct() {
     e.preventDefault();
     try {
       const t = localStorage.getItem("access_token");
-      console.log('token is ',t);
-  console.log('current user',currentUser);
-
-      const res = await fetch(`http://localhost:5000/api/products/addproduct/${currentUser._id}`, {
+      const res = await fetch(`https://billing-backend-9wgp.onrender.com/api/products/addproduct/${currentUser._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -89,7 +85,7 @@ export default function AddProduct() {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/products/deleteproduct/${id}`, {
+      const res = await fetch(`https://billing-backend-9wgp.onrender.com/api/products/deleteproduct/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();

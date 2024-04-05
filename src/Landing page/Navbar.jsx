@@ -126,7 +126,7 @@ const Navbar = () => {
               <ScrollLink
                 to="home"
                 smooth={true}
-                className="text-white hover:text-gray-300 transition duration-300 px-4 py-2 rounded-md"
+                className="text-white  hover:text-gray-300  transition duration-300 px-4 py-2 rounded-md"
                 onClick={() => {
                   scrollToSection("home");
                   closeMobileNav();

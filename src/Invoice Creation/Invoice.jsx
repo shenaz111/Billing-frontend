@@ -33,8 +33,11 @@ export default function Invoice() {
   const handlesearchProductID = async () => {
     try {
       const t=localStorage.getItem("access_token");
+      console.log('current product',currentproduct);
+      console.log('current product',currentUser);
+
       const res = await fetch(
-        `http://localhost:5000/api/products/getproduct/${currentproduct.productID}/${currentUser._id}`,{
+        `https://billing-backend-9wgp.onrender.com/api/products/getproduct/${currentproduct.productID}/${currentUser._id}`,{
           headers:{
             Authorization: `Bearer ${t}`,
           }
@@ -76,7 +79,7 @@ export default function Invoice() {
 
       const t=localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/customers/getcustomer/${currentCustomer.customerID}/${currentUser._id}`,{
+        `https://billing-backend-9wgp.onrender.com/api/customers/getcustomer/${currentCustomer.customerID}/${currentUser._id}`,{
           headers:{
             Authorization: `Bearer ${t}`,
           }
@@ -163,7 +166,7 @@ export default function Invoice() {
       });
       const t=localStorage.getItem("access_token");
       const res = await fetch(
-        `http://localhost:5000/api/invoices/createInvoice/${currentUser._id}`,
+        `https://billing-backend-9wgp.onrender.com/api/invoices/createInvoice/${currentUser._id}`,
         {
           method: "POST",
           headers: {
@@ -181,6 +184,8 @@ export default function Invoice() {
       }
       setLoading(false);
       setSuccess("Invoice Created Successfully....");
+      setDate(null);
+
       setCurrentProduct({
         productID: "",
         productname: "",
@@ -191,7 +196,6 @@ export default function Invoice() {
       });
       setCurrentCustomer({ customerID: '', name: "", email: "", address: "" });
       setPrevProducts([]);
-      setDate(null);
       setError(false);
       console.log(data);
     } catch (error) {
